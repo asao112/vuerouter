@@ -37,20 +37,26 @@
 export default {
   data() {
     return {
-     radio:'',
-     radio2:'',
-     radio3:'',
-     show:1,
-     nextButton:'',
-     backButton:'',
+      radio:'',
+      radio2:'',
+      radio3:'',
+      show:1,
+      nextButton:'',
+      backButton:'',
     };
   },
   mounted() {
     this.nengoes = this.genereate();
   },
   methods: {
-    next:function(){ this.show++; if (this.show > 3) { this.show = 3; } }
-}};
+    next:function(){
+      this.show++;
+      if (this.show > 3) { 
+        this.show = 3;
+        } 
+      }
+    }
+};
 </script>
 
 

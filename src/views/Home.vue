@@ -17,7 +17,7 @@
     <p>-生年月日-</p>
     <div class="boxes">
     <select id="year" v-model="year">
-    <option v-for="nengo in nengoes" :key="nengo.year" :value="nengo.year">{{ nengo.label }}</option>
+    <option v-for="number in imperial_Era" :key="number.year" :value="number.year">{{ number.label }}</option>
     </select>
     <label>年</label>
     <select v-model="month" @change="get_days">
@@ -45,27 +45,27 @@ export default {
       radio:'',
       radio2:'',
       radio3:'',
-      nengoes: []
+      imperial_Era : []
     };
   },
   mounted() {
-    this.nengoes = this.genereate();
+    this.imperial_Era = this.genereate();
   },
   methods: {
     genereate() {
-      const nengoes = [];
+      const imperial_Era  = [];
       for (let y=2020; y>1920; y--) {
         if (y > 2018) {
-          nengoes.push( {"year": y, "label": `${y} (令和${y-2018}年)`} );
+          imperial_Era.push( {year: y, label: `${y} (令和${y-2018}年)`} );
         } else if (y > 1988) {
-          nengoes.push( {"year": y, "label": `${y} (平成${y-1988}年)`} );
+          imperial_Era.push( {year: y, label: `${y} (平成${y-1988}年)`} );
         } else if (y > 1925) {
-          nengoes.push( {"year": y, "label": `${y} (昭和${y-1925}年)`} );
+          imperial_Era.push( {year: y, label: `${y} (昭和${y-1925}年)`} );
         } else if (y > 1911) {
-          nengoes.push( {"year": y, "label": `${y} (大正${y-1911}年)`} );
+          imperial_Era.push( {year: y, label: `${y} (大正${y-1911}年)`} );
         }
       }
-      return nengoes;
+      return imperial_Era;
     }
   }
 };
