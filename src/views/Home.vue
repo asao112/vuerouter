@@ -17,7 +17,7 @@
     <p>-生年月日-</p>
     <div class="boxes">
     <select id="year" v-model="year">
-    <option v-for="number in imperial_Era" :key="number.year" :value="number.year">{{ number.label }}</option>
+    <option v-for="number in years" :key="number.years" :value="number.year">{{ number.label }}</option>
     </select>
     <label>年</label>
     <select v-model="month" @change="get_days">
@@ -45,27 +45,27 @@ export default {
       radio:'',
       radio2:'',
       radio3:'',
-      imperial_Era : []
+      years : []
     };
   },
   mounted() {
-    this.imperial_Era = this.genereate();
+    this.years= this.genereate();
   },
   methods: {
     genereate() {
-      const imperial_Era  = [];
+      const years  = [];
       for (let y=2020; y>1920; y--) {
         if (y > 2018) {
-          imperial_Era.push( {year: y, label: `${y} (令和${y-2018}年)`} );
+          years.push( {year: y, label: `${y} (令和${y-2018}年)`} );
         } else if (y > 1988) {
-          imperial_Era.push( {year: y, label: `${y} (平成${y-1988}年)`} );
+          years.push( {year: y, label: `${y} (平成${y-1988}年)`} );
         } else if (y > 1925) {
-          imperial_Era.push( {year: y, label: `${y} (昭和${y-1925}年)`} );
+          years.push( {year: y, label: `${y} (昭和${y-1925}年)`} );
         } else if (y > 1911) {
-          imperial_Era.push( {year: y, label: `${y} (大正${y-1911}年)`} );
+          years.push( {year: y, label: `${y} (大正${y-1911}年)`} );
         }
       }
-      return imperial_Era;
+      return years;
     }
   }
 };
